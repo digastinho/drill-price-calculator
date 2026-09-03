@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Calculadora de preço para furos, com base em volume e preço por cm³."
+    />
+    <title>Drill Price Calculator</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="page-header">
+        <h1>Drill Price Calculator</h1>
+        <p class="subtitle">
+          Calcula o preço de furos com base no volume perfurado
+        </p>
+      </header>
+
+      <div class="grid">
+        <div class="card">
+          <div class="field">
+            <label for="holeName">Nome do furo / projeto</label>
+            <input
+              type="text"
+              id="holeName"
+              placeholder="ex: Furo M8 - Peça A"
+            />
+          </div>
+
+          <div class="field">
+            <label for="diameter">Diâmetro (mm)</label>
+            <input type="number" id="diameter" step="1" min="0" value="0" />
+          </div>
+
+          <div class="field">
+            <label for="depth">Profundidade (mm)</label>
+            <input type="number" id="depth" step="1" min="0" value="0" />
+          </div>
+
+          <div class="field">
+            <label for="quantity">Quantidade de furos</label>
+            <input type="number" id="quantity" step="1" min="1" value="1" />
+          </div>
+
+          <div class="field">
+            <label for="pricePerCm3">Preço por cm³ (€)</label>
+            <input
+              type="number"
+              id="pricePerCm3"
+              step="0.01"
+              min="0"
+              value="0.01"
+            />
+          </div>
+
+          <div class="field">
+            <label for="fixedCost"
+              >Custo fixo por furo — desgaste de broca (€)</label
+            >
+            <input type="number" id="fixedCost" step="0.01" min="0" value="1" />
+          </div>
+
+          <div class="field">
+            <label for="vatRate">IVA (%)</label>
+            <input type="number" id="vatRate" step="0.1" min="0" value="23" />
+          </div>
+
+          <div class="field">
+            <label for="profitSlider"
+              >Margem de lucro: <span id="profitValue">30</span>%</label
+            >
+            <input
+              type="range"
+              id="profitSlider"
+              min="0"
+              max="100"
+              value="30"
+            />
+          </div>
+        </div>
+
+        <div class="card results">
+          <p id="rProjectName" class="project-name"></p>
+          <p id="rPrintDate" class="print-date"></p>
+
+          <h2>Resultado</h2>
+
+          <div class="result-row">
+            <span>Volume por furo</span>
+            <span id="rVolume">0.00 cm³</span>
+          </div>
+          <div class="result-row">
+            <span>Volume total (x quantidade)</span>
+            <span id="rTotalVolume">0.00 cm³</span>
+          </div>
+          <hr />
+          <div class="result-row">
+            <span>Custo material</span>
+            <span id="rMaterial">€0.00</span>
+          </div>
+          <div class="result-row">
+            <span>Custo fixo total</span>
+            <span id="rFixed">€0.00</span>
+          </div>
+          <hr />
+          <div class="result-row subtotal">
+            <span>Custo base</span>
+            <span id="rSubtotal">€0.00</span>
+          </div>
+          <div class="result-row profit">
+            <span>Lucro</span>
+            <span id="rProfit">€0.00</span>
+          </div>
+          <div class="result-row">
+            <span>Preço antes de IVA</span>
+            <span id="rPreVat">€0.00</span>
+          </div>
+          <div class="result-row">
+            <span>IVA</span>
+            <span id="rVat">€0.00</span>
+          </div>
+          <hr />
+          <div class="result-row final">
+            <span>Preço final</span>
+            <span id="rFinal">€0.00</span>
+          </div>
+          <button id="printSummaryButton" class="button-export">
+            Imprimir Ficheiro
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
