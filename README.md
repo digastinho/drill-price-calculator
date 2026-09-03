@@ -1,7 +1,5 @@
 # Drill Price Calculator
 
-🔗 **Demo:** [digastinho.github.io/drill-price-calculator](https://digastinho.github.io/drill-price-calculator/)
-
 Calculadora de preço para furos, com base no volume perfurado (cilindro) e preço por cm³.
 
 ```
