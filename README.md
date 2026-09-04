@@ -36,5 +36,6 @@ drill-price-calculator/
 - Quantidade de furos
 - Preço por cm³ (€)
 - Custo fixo por furo — desgaste de broca (€)
+- Distância da deslocação (km) — taxa fixa de 0.16€/km (8L/100km a 2€/L)
 - IVA (%)
 - Margem de lucro (slider, 0–100%)
