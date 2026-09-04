@@ -46,6 +46,10 @@ function calculate() {
   const month = String(today.getMonth() + 1).padStart(2, "0");
   const year = today.getFullYear();
   $("rPrintDate").textContent = `${day}/${month}/${year}`;
+
+  const distance = parseFloat($("distance").value) || 0;
+  const TRAVEL_RATE_PER_KM = 0.16; // baseado em 8L/100km a 2€/L
+  const travelCost = distance * TRAVEL_RATE_PER_KM;
 }
 
 $("profitSlider").addEventListener("input", () => {
