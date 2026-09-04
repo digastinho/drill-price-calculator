@@ -167,6 +167,32 @@ hr {
   opacity: 0.9;
 }
 
+.holes-list {
+  margin: 14px 0;
+}
+
+.hole-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  background: #0f1115;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+}
+
+.hole-item .remove-hole {
+  cursor: pointer;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+.hole-item .remove-hole:hover {
+  color: #ff4d4d;
+}
+
 @media print {
   .card:first-child,
   .button-export {

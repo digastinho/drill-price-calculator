@@ -1,4 +1,5 @@
 const $ = (id) => document.getElementById(id);
+let holes = [];
 
 function fmt(n) {
   return "€" + n.toFixed(2);
