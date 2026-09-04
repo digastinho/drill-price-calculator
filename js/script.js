@@ -12,6 +12,9 @@ function calculate() {
   const fixedCost = parseFloat($("fixedCost").value) || 0;
   const vatRate = parseFloat($("vatRate").value) || 0;
   const profit = parseFloat($("profitSlider").value) || 0;
+  const distance = parseFloat($("distance").value) || 0;
+  const TRAVEL_RATE_PER_KM = 0.16; // baseado em 8L/100km a 2€/L
+  const travelCost = distance * TRAVEL_RATE_PER_KM;
 
   // Converter mm para cm (o preço é sempre por cm³)
   const radiusCm = diameterMm / 10 / 2;
@@ -24,7 +27,7 @@ function calculate() {
   const materialCost = totalVolume * pricePerCm3;
   const totalFixedCost = fixedCost * quantity;
 
-  const subtotal = materialCost + totalFixedCost;
+  const subtotal = materialCost + totalFixedCost + travelCost;
   const profitAmount = subtotal * (profit / 100);
   const preVat = subtotal + profitAmount;
   const vatAmount = preVat * (vatRate / 100);
@@ -40,16 +43,13 @@ function calculate() {
   $("rVat").textContent = fmt(vatAmount);
   $("rFinal").textContent = fmt(final);
   $("rProjectName").textContent = $("holeName").value.trim() || "Sem nome";
+  $("rTravel").textContent = fmt(travelCost);
 
   const today = new Date();
   const day = String(today.getDate()).padStart(2, "0");
   const month = String(today.getMonth() + 1).padStart(2, "0");
   const year = today.getFullYear();
   $("rPrintDate").textContent = `${day}/${month}/${year}`;
-
-  const distance = parseFloat($("distance").value) || 0;
-  const TRAVEL_RATE_PER_KM = 0.16; // baseado em 8L/100km a 2€/L
-  const travelCost = distance * TRAVEL_RATE_PER_KM;
 }
 
 $("profitSlider").addEventListener("input", () => {
